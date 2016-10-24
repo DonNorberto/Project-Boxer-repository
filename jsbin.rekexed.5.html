@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by DonNorberto (http://jsbin.com/rekexed/5/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Színóra projekt">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  
+  <link href="https://fonts.googleapis.com/css?family=Exo+2:100" rel="stylesheet" type="text/css">
+
+  <title>Színóra projekt</title>
+  
+  
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+
+/* Ez a lenullázás a tökéles közép-középre miatt kell. (a * az informatikában gyakran a joker minden karakter [wildcard]). Azért kell a CSS szabályok elé bemásolnod, mert különben az előtte definiált saját szabályaidat is ugyanúgy lenullázza. */
+
+
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 68px;
+  margin-top: -34px;
+}
+
+/* A "maergin-top: a felével elcsúsztatjuk, mert a #clock tetejétől méri az 50%-os szétosztást */
+/* "display: none" kód eltűntet mindent, aminek nincs class-ja. Ellenőrzésre lehet használni. */
+/* van "position: absolute" érték is, ami kiteszi az egészet a bal oldalra. */
+/* "bottom: -50%;" esetében ugyanazt az eredményt kapjuk mint top: 50%;-nál. */
+/* "CMD+ALT+J" a Console megnyitás gyors gombja (hot key) */
+/* JS-ben:
+
+console.log('Hello Techno Viking');
+console.log(2+3);
+console.log('Heló, ' + 'világ');
+console.log('Heló, ' + 2 + ' világ');
+console.log(Date());
+
+var time = '12:13';
+var seconds = ':14';
+console.log(time+seconds);
+
+document.getElementById('clock').style.background = 'red';
+
+
+
+
+*/
+
+
+
+
+</style>
+</head>
+<body>
+
+  <div id="clock">12:13:14</div>
+  
+  
+<script id="jsbin-javascript">
+function colorClock(){
+  
+ var date = new Date();
+
+ var hours = date.getHours();
+ var minutes = date.getMinutes();
+ var seconds = date.getSeconds();
+
+
+ if (seconds < 10) {
+  seconds = '0' + seconds;
+ }
+
+ if (minutes < 10) {
+  minutes = '0' + minutes;
+ }
+
+ if (hours < 10) {
+  hours = '0' + hours;
+ }
+
+
+ var clockFace = hours + ':' + minutes + ':' + seconds;
+ var hexColor = '#' + hours + minutes + seconds;
+  
+ console.log(hours + ':' + minutes + ':' + seconds);
+
+ document.getElementById('clock').innerHTML = clockFace;
+ document.body.style.background = hexColor;
+
+  
+ setTimeout(function() {
+    colorClock();
+  }, 1000);
+  
+ }
+
+colorClock();
+
+
+
+</script>
+</body>
+</html>
